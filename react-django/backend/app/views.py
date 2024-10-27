@@ -8,6 +8,7 @@ from django.db.models import Q, F
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 
+
 class ReactView(APIview):
     def get(self, request):
         output = [{"username": output.employee,

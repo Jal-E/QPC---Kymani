@@ -51,12 +51,13 @@ class TeamItemView(generics.ListCreateAPIView):
 class UserAccountView(generics.ListCreateAPIView):
     queryset = UserAccount.objects.all()
     serializer_class = UserAccountSerializer
+    
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        name = self.request.query_params.get('username')
-        if name:
-            queryset = queryset.filter(name__icontains=name)  # Case-insensitive partial match
+        username = self.request.query_params.get('username')  # Make sure the query parameter name matches
+        if username:
+            queryset = queryset.filter(username__exact=username)  # Adjust the field name here if necessary
         return queryset
 
 class EmployeeView(generics.ListCreateAPIView):

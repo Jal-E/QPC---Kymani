@@ -36,7 +36,7 @@ const LoginForm = () => {
   
     // Fetch user accounts to check the login credentials
     axios
-      .get('http://127.0.0.1:8000/user-login/')
+      .get(`http://127.0.0.1:8000/user-login?username=${formData.username}`)
       .then((response) => {
         const users = response.data; // Get the list of users from the response
         const { username, password } = formData; // Get the username and password from the form input

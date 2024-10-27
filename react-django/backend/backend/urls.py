@@ -92,18 +92,7 @@ class TeamMemberView(generics.ListCreateAPIView):
         if name:
             queryset = queryset.filter(name__icontains=name)  # Case-insensitive partial match
         return queryset
-    
-class ProjectManagerView(generics.ListCreateAPIView):
-    queryset = ProjectManager.objects.all()
-    serializer_class = ProjectManagerSerializer
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        name = self.request.query_params.get('user_account')  # Filter by department name
-        if name:
-            queryset = queryset.filter(name__icontains=name)  # Case-insensitive partial match
-        return queryset
-    
 class ProjectView(generics.ListCreateAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
@@ -114,6 +103,10 @@ class ProjectView(generics.ListCreateAPIView):
         if name:
             queryset = queryset.filter(name__icontains=name)  # Case-insensitive partial match
         return queryset
+
+class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
     
 class OnProjectView(generics.ListCreateAPIView):
     queryset = OnProject.objects.all()
@@ -200,8 +193,8 @@ urlpatterns = [
     path('Employee/', EmployeeView.as_view(), name='employee-list'),
     path('Role/', RoleView.as_view(), name='Role-list'),
     path('TeamMember/',TeamMemberView.as_view(),name='teammember-list'),
-    path('ProjectManager/',ProjectManagerView.as_view(),name='ProjectManager-list'),
     path('Project/',ProjectView.as_view(),name='project-list'),
+    path('Project/<int:pk>/', ProjectDetailView.as_view(), name='project-detail'),
     path('OnProject/',OnProjectView.as_view(),name='OnProject-list'),
     path('ClientPartner/',ClientPartnerView.as_view(),name='ClientPartner-list'),
     path('Activity/',ActivityView.as_view(),name='Activity-list'),
@@ -210,4 +203,17 @@ urlpatterns = [
     path('PrecedingActivity/',PrecedingActivityView.as_view(),name='PrecedingActivity-list'),
     path('PrecedingTask/',PrecedingTaskView.as_view(),name='PrecedingTask-list'),
     path('user-login/', UserAccountView.as_view(), name='Login')
-] 
+    path('react-items/<int:pk>/', ReactItemView.as_view(), name='react-item-detail'),
+    path('user-accounts/<int:pk>/', UserAccountView.as_view(), name='useraccount-detail'),
+    path('employees/<int:pk>/', EmployeeView.as_view(), name='employee-detail'),
+    path('roles/<int:pk>/', RoleView.as_view(), name='role-detail'),
+    path('team-members/<int:pk>/', TeamMemberView.as_view(), name='teammember-detail'),
+    path('projects/<int:pk>/', ProjectView.as_view(), name='project-detail'),
+    path('on-projects/<int:pk>/', OnProjectView.as_view(), name='onproject-detail'),
+    path('client-partners/<int:pk>/', ClientPartnerView.as_view(), name='clientpartner-detail'),
+    path('activities/<int:pk>/', ActivityView.as_view(), name='activity-detail'),
+    path('tasks/<int:pk>/', TaskView.as_view(), name='task-detail'),
+    path('assigned/<int:pk>/', AssignedView.as_view(), name='assigned-detail'),
+    path('preceding-activities/<int:pk>/', PrecedingActivityView.as_view(), name='precedingactivity-detail'),
+    path('preceding-tasks/<int:pk>/', PrecedingTaskView.as_view(), name='precedingtask-detail'),
+]

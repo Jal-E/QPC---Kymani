@@ -58,20 +58,21 @@ class ClientPartner(models.Model):
     class Meta:
         db_table= 'clientpartner'
 
-class ProjectManager(models.Model):
-    user_account = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
-
-    class Meta:
-        db_table= 'projectmanager'
-
 class Project(models.Model):
     project_name = models.CharField(max_length=75)
     planned_start_date = models.DateField()
     planned_end_date = models.DateField()
     planned_budget = models.DecimalField(max_digits=12, decimal_places=2)
-    spent_budget = models.DecimalField(max_digits=12, decimal_places=2)
+    spent_budget = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     description = models.TextField()
-    project_manager = models.ForeignKey(ProjectManager, on_delete=models.CASCADE)
+    project_manager = models.ForeignKey(
+        UserAccount,
+        on_delete=models.CASCADE,
+        limit_choices_to={'project_manager': True},
+        null=True,
+        blank=True
+    )
+    file_upload = models.FileField(upload_to='uploads/', null=True, blank=True)
 
     class Meta:
         db_table= 'project'

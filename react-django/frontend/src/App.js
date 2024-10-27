@@ -12,7 +12,8 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import DocumentUpload from './pages/UploadDocuments/DocumentUpload';
 import CreateProject from './pages/CreateProject/CreateProject';
 import Login from './pages/LoginPage/Login';
-
+import EditProject from "./pages/EditProject/EditProject";
+import ProjectList from "./pages/ProjectList/ProjectList";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,14 @@ const router = createBrowserRouter([
   {
     path: "/createproject",
     element: (<CreateProject/>),
+  },
+  {
+    path: "/projectlist",
+    element: (<ProjectList/>),
+  },
+  {
+    path: "/edit-project/:id",
+    element: (<EditProject/>),
   },
   {
     path: "/*",

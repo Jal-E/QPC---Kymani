@@ -74,8 +74,12 @@ const SignupForm = () => {
       <div className="signup-content">
         <div className="signup-header">
           <h2>Signup Form</h2>
+<<<<<<< HEAD
           <p>Sign Up to Kaymani Management Group</p>
           <p>Already have an account? <Link to="/login">Login</Link></p>
+=======
+          <p>Sign Up to Kymani Management Group</p>
+>>>>>>> eb7e8745b1fe734312a1e27d2f55db7a65d9708f
         </div>
 
         <div className="signup-form-container">

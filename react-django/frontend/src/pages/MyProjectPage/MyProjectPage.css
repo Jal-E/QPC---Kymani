@@ -1,0 +1,235 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.text{
+    color: #a0aac8;
+    text-decoration: none;
+}
+
+/* Base styles */
+body, html {
+    background-color:white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container1 styles */
+.container1 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* flex-direction: column; */
+    background-color: white;
+    display: block;
+}
+
+
+/* Navbar styles */
+.container11 {
+    width: 100vh;
+    height: 15%;
+    background-color: white;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    padding: 0 20px;
+}
+
+/* Container2 styles */
+.container2 {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
+
+/* Example specific styles for container3 and container4 */
+.container21 {
+    background-color: white; 
+    width: 20%;
+    margin-top: 0;
+}
+
+.container22 {
+    width: 80%;
+}
+
+/* Table */
+
+
+
+/* Main Section Container */
+.projects-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+/* Projects Header */
+.projects-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.projects-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Controls Container */
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.controls-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Dropdown and Search Input Styling */
+.entries-select {
+    padding: 6px 10px;
+    border: none; 
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333; 
+    background-color: #f8f9fa;
+    outline: none;
+    
+}
+
+/* Optional styling for the dropdown options */
+.entries-select option {
+    color: #333; 
+    background-color: #f8f9fa;
+}
+
+
+.create-project {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.create-project:hover {
+    background-color: #0056b3;
+}
+
+.search-input {
+    padding: 8px 12px;
+    border: none; 
+    border-radius: 5px;
+    font-size: 14px;
+    color: #555;
+    width: 150px;
+    background-color: #f8f9fa;
+}
+
+/* Projects Table - Borderless */
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+.projects-table th,
+.projects-table td {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+    background-color: transparent;
+    border: none; 
+}
+
+.projects-table th {
+    font-weight: bold;
+    color: #333;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.projects-table td {
+    color: #666;
+}
+
+/* Button Styling within Table */
+.upload-btn,
+.view-btn {
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.upload-btn:hover,
+.view-btn:hover {
+    background-color: #e0f0ff;
+}
+
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+}
+
+/* Styling active page link */
+.page-numbers a {
+    padding: 5px 10px;
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.page-numbers a.active-page {
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+}
+
+.page-numbers a:hover {
+    background-color: #e0f0ff;
+    text-decoration: none;
+}

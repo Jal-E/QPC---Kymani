@@ -13,6 +13,7 @@ import DocumentUpload from './pages/UploadDocuments/DocumentUpload';
 import CreateProject from './pages/CreateProject/CreateProject';
 import EditProject from "./pages/EditProject/EditProject";
 import ProjectList from "./pages/ProjectList/ProjectList";
+import MyProjectPage from "./pages/MyProjectPage/MyProjectPage";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/edit-project/:id",
     element: (<EditProject/>),
+  },
+  {
+    path: "/MyProjectPage",
+    element: (<MyProjectPage/>),
   },
   {
     path: "/*",

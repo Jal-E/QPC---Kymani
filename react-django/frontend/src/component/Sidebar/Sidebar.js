@@ -15,6 +15,11 @@ const Sidebar_Data = [
     link: "/profile",
     icon: <FaRegFolderOpen />,
   },
+  {
+    title: "My Projects",
+    link: "/MyProjectPage",
+    icon: <FaRegFolderOpen />,
+  },
 ];
 
 export default function Sidebar() {

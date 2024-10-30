@@ -1,4 +1,3 @@
-/* loginForm.css */
 .login-container {
   margin: 0.5rem;
   border-radius: 10px;
@@ -22,7 +21,7 @@
 .login-header {
   background-color: #f9fafb;
   padding: 1.5rem;
-  margin-bottom: 2rem; /* Reduced from 30% */
+  margin-bottom: 2rem;
 }
 
 .login-header h2 {
@@ -44,7 +43,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  margin-top: -2rem; /* Added negative margin to pull form up */
+  margin-top: -2rem;
   background-color: white;
   flex-grow: 1;
   display: flex;
@@ -53,7 +52,7 @@
   align-items: center;
 }
 
-.form-input{
+.form-input {
   width: 100%;
   height: 100%;
   display: flex;
@@ -62,7 +61,7 @@
 }
 
 .form-group {
-  margin-bottom: 1rem; /* Changed from margin-top to margin-bottom */
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -102,7 +101,8 @@
   margin-top: 1.5rem 0rem 1.5rem 0rem;
 }
 
-.submit-btn, .cancel-btn {
+.submit-btn,
+.cancel-btn {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   font-size: 1rem;

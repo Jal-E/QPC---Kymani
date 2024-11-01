@@ -3,21 +3,20 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavBar from '../../component/Navbar/NavBar';
 import Sidebar from '../../component/Sidebar/Sidebar';
-import './EditProject.css'; // Create this CSS file or use an existing one
+import './EditProject.css';
 
 function EditProject() {
-  const { id } = useParams(); // Get the project ID from the URL
+  const { id } = useParams();
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [statusMessage, setStatusMessage] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]); // Store selected file in state
+    setSelectedFile(e.target.files[0]);
   };
 
   useEffect(() => {
-    // Fetch the project details using the project ID
     axios.get(`http://localhost:8000/Project/${id}/`)
       .then((response) => {
         setProject(response.data);
@@ -50,7 +49,7 @@ function EditProject() {
   if (selectedFile) {
     formData.append('file_upload', selectedFile);
   } else {
-    formData.delete('file_upload'); // Ensure the field is not sent if no file is uploaded
+    formData.delete('file_upload');
   }
 
   // Update the project using the ID
@@ -61,7 +60,7 @@ function EditProject() {
   })
     .then(() => {
       setStatusMessage('Project updated successfully!');
-      navigate('/projectlist'); // Redirect to the projects list
+      navigate('/projectlist');
     })
     .catch((error) => {
       console.error('There was an error updating the project!', error);
@@ -69,8 +68,7 @@ function EditProject() {
     });
 };
 
-
-  if (!project) return <div>Loading...</div>; // Loading state
+  if (!project) return <div>Loading...</div>;
 
   return (
     <div className="container1">
@@ -112,7 +110,7 @@ function EditProject() {
                   <input
                       type="file"
                       name="file_upload"
-                      onChange={handleFileChange} // File input
+                      onChange={handleFileChange}
                   />
                 </div>
 

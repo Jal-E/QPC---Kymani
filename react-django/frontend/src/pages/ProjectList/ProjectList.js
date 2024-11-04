@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from '../../component/Sidebar/Sidebar';
-import './ProjectList.css'; // Create this CSS file or use the existing one
+import './ProjectList.css';
 import NavBar from '../../component/Navbar/NavBar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,6 @@ function ProjectsList() {
   const [statusMessage, setStatusMessage] = useState(null);
 
   useEffect(() => {
-    // Fetch all projects when the component mounts
     axios.get("http://localhost:8000/Project/")
       .then((response) => {
         console.log("Projects Data: ", response.data);
@@ -25,12 +24,12 @@ function ProjectsList() {
 const handleDelete = (projectId) => {
   axios.delete(`http://localhost:8000/Project/${projectId}/`)
     .then(() => {
-      setProjects(prevProjects => prevProjects.filter(project => project.id !== projectId)); // Filter out deleted project
-      setStatusMessage('Project deleted successfully!'); // Success message
+      setProjects(prevProjects => prevProjects.filter(project => project.id !== projectId));
+      setStatusMessage('Project deleted successfully!');
     })
     .catch((error) => {
       console.error('There was an error deleting the project!', error);
-      setStatusMessage('Error deleting project. Please try again.'); // Error message
+      setStatusMessage('Error deleting project. Please try again.');
     });
 };
 

@@ -84,13 +84,13 @@ DATABASES = {
        'NAME': 'Kymani',
        'USER': 'postgres',
        # #  Nishi
-       # 'PASSWORD': '12345',
-       # 'HOST': 'localhost',
-       # 'PORT': '5432',
+       'PASSWORD': '12345',
+       'HOST': 'localhost',
+       'PORT': '5432',
         # Binh
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        # 'PASSWORD': '1234',
+        # 'HOST': 'localhost',
+        # 'PORT': '5433',
    }
 }
 

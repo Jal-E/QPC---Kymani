@@ -51,12 +51,13 @@ class TeamItemView(generics.ListCreateAPIView):
 class UserAccountView(generics.ListCreateAPIView):
     queryset = UserAccount.objects.all()
     serializer_class = UserAccountSerializer
+    
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        name = self.request.query_params.get('username')
-        if name:
-            queryset = queryset.filter(name__icontains=name)  # Case-insensitive partial match
+        username = self.request.query_params.get('username')  # Make sure the query parameter name matches
+        if username:
+            queryset = queryset.filter(username__exact=username)  # Adjust the field name here if necessary
         return queryset
 
 class EmployeeView(generics.ListCreateAPIView):
@@ -201,6 +202,7 @@ urlpatterns = [
     path('Assigned/',AssignedView.as_view(),name='Assigned-list'),
     path('PrecedingActivity/',PrecedingActivityView.as_view(),name='PrecedingActivity-list'),
     path('PrecedingTask/',PrecedingTaskView.as_view(),name='PrecedingTask-list'),
+    path('user-login/', UserAccountView.as_view(), name='Login')
     path('react-items/<int:pk>/', ReactItemView.as_view(), name='react-item-detail'),
     path('user-accounts/<int:pk>/', UserAccountView.as_view(), name='useraccount-detail'),
     path('employees/<int:pk>/', EmployeeView.as_view(), name='employee-detail'),

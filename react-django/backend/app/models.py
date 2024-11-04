@@ -2,6 +2,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 class React (models.Model):
     username = models.CharField(max_length=100, default='default_user')
     firstname = models.CharField (max_length = 30)
@@ -9,12 +10,13 @@ class React (models.Model):
 
 class UserAccount(models.Model):
     username = models.CharField(max_length=45, primary_key=True)
-    password = models.CharField(max_length=45)
+    password = models.CharField(max_length=255)
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
     email = models.CharField(max_length=45)
     project_manager = models.BooleanField(default=False)
     login_time = models.DateTimeField(default=timezone.now)
+
 
     class Meta:
         db_table= 'useraccount'

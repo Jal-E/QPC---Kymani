@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import axios from 'axios'; // Ensure to import axios
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './SignupForm.css';
+import React, { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios"; // Ensure to import axios
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import "./SignupForm.css";
 
 const SignupForm = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
 
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    first_name: '',
-    last_name: '',
-    email: '',
+    username: "",
+    password: "",
+    first_name: "",
+    last_name: "",
+    email: "",
     project_manager: false,
   });
 
   const [statusMessage, setStatusMessage] = useState(null); // State for success/error message
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,28 +34,42 @@ const SignupForm = () => {
 
     // Axios POST request to send data to the Django backend
     axios
-      .post('http://localhost:8000/user-accounts/', formData)
+      .post("http://localhost:8000/user-accounts/", formData)
       .then((response) => {
-        console.log('Data saved successfully:', response.data);
-        setStatusMessage('Data saved successfully!'); // Set success message
+        console.log("Data saved successfully:", response.data);
+        setStatusMessage("Data saved successfully!"); // Set success message
 
         // Clear the form fields
         setFormData({
-          username: '',
-          password: '',
-          first_name: '',
-          last_name: '',
-          email: '',
+          username: "",
+          password: "",
+          first_name: "",
+          last_name: "",
+          email: "",
           project_manager: false,
         });
-        setConfirmPassword(''); // Clear confirm password
+        setConfirmPassword(""); // Clear confirm password
 
         // Redirect to the Dashboard
-        navigate('/dashboard'); // Navigate to the Dashboard
+        navigate("/login"); // Navigate to the Dashboard
       })
       .catch((error) => {
-        console.error('There was an error!', error);
-        setStatusMessage('Error saving data! Please try again.'); // Set error message
+        if (error.response && error.response.status === 400) {
+          const errorData = error.response.data;
+          if (errorData.username) {
+            setStatusMessage(
+              "Username already exists. Please choose a different one."
+            );
+          } else if (errorData.email) {
+            setStatusMessage(
+              "Email already exists. Please choose a different one."
+            );
+          } else {
+            setStatusMessage("Username or email already exists!");
+          }
+        } else {
+          setStatusMessage("Error saving data! Please try again.");
+        }
       });
   };
 
@@ -82,7 +96,6 @@ const SignupForm = () => {
                 required
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="first_name">First Name</label>
               <input
@@ -95,7 +108,6 @@ const SignupForm = () => {
                 required
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="last_name">Last Name</label>
               <input
@@ -108,7 +120,6 @@ const SignupForm = () => {
                 required
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -121,14 +132,13 @@ const SignupForm = () => {
                 required
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <div className="password-input">
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   value={formData.password}
                   onChange={handleInputChange}
                   required
@@ -142,14 +152,13 @@ const SignupForm = () => {
                 </button>
               </div>
             </div>
-
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
               <div className="password-input">
                 <input
                   id="confirmPassword"
-                  name="confirmPassword" // Optional: Keep this in state or validate
-                  type={showConfirmPassword ? 'text' : 'password'}
+                  name="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
@@ -163,7 +172,6 @@ const SignupForm = () => {
                 </button>
               </div>
             </div>
-
             {/* Buttons grouped in another div */}
             <div className="form-actions">
               <button type="submit" className="submit-btn">
@@ -173,8 +181,8 @@ const SignupForm = () => {
                 Cancel
               </button>
             </div>
-
-            {statusMessage && <p>{statusMessage}</p>} {/* Display status message */}
+            {statusMessage && <p>{statusMessage}</p>}{" "}
+            {/* Display status message */}
           </form>
         </div>
       </div>

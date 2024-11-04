@@ -5,7 +5,6 @@ from .models import *
 from .serializer import *
 from rest_framework import status
 from rest_framework.views import APIView
-
 class ReactView(APIView):
     def get(self, request):
         output = [{"username": output.employee,
@@ -20,7 +19,6 @@ class ReactView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-
 class UserAccountView(APIView):
     def get(self, request):
         output = [{"username": output.username,
@@ -39,7 +37,6 @@ class UserAccountView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-
 class EmployeeView (APIView):
     def get(self, request):
         output = [{"employee_code": output.employee_code,
@@ -55,7 +52,6 @@ class EmployeeView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class RoleView (APIView):
     def get(self, request):
         output = [{"role_name": output.role_name}
@@ -68,7 +64,6 @@ class RoleView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class TeamMemberView (APIView):
     def get(self, request):
         output = [{"team_name": output.team_name,
@@ -82,7 +77,6 @@ class TeamMemberView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class ProjectView(APIview):
     def get(self, request):
         output = [{"project_name": output.project_name,
@@ -127,7 +121,6 @@ class ProjectView(APIview):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Project.DoesNotExist:
             return Response({"error": "Project not found."}, status=status.HTTP_404_NOT_FOUND)
-
 class OnProjectView (APIView):
     def get(self, request):
         output = [{"project": output.project,
@@ -146,7 +139,6 @@ class OnProjectView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class ClientPartnerView (APIView):
     def get(self, request):
         output = [{"client_name": output.client_name,
@@ -161,7 +153,6 @@ class ClientPartnerView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class ActivityView (APIView):
     def get(self, request):
         output = [{"activity_name": output.activity_name,
@@ -182,7 +173,6 @@ class ActivityView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class TaskView (APIView):
     def get(self, request):
         output = [{"task_name": output.task_name,
@@ -204,7 +194,6 @@ class TaskView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class AssignedView (APIView):
     def get(self, request):
         output = [{"employee": output.employee,
@@ -219,7 +208,6 @@ class AssignedView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class PrecedingActivityView (APIView):
     def get(self, request):
         output = [{"preceding_activity": output.preceding_activity,
@@ -233,7 +221,6 @@ class PrecedingActivityView (APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response (serializer.data)
-
 class PrecedingTaskView (APIView):
     def get(self, request):
         output = [{"preceding_task": output.preceding_task,

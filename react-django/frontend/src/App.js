@@ -11,6 +11,7 @@ import ProfileUpdatePage from './pages/ProfileUpdate/ProfileUpdatePage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import DocumentUpload from './pages/UploadDocuments/DocumentUpload';
 import CreateProject from './pages/CreateProject/CreateProject';
+import Login from './pages/LoginPage/Login';
 import EditProject from "./pages/EditProject/EditProject";
 import ProjectList from "./pages/ProjectList/ProjectList";
 import MyProjectPage from "./pages/MyProjectPage/MyProjectPage";
@@ -18,7 +19,7 @@ import MyProjectPage from "./pages/MyProjectPage/MyProjectPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (<BasePage/>),
+    element: (<Signup/>),
   },
   {
     path: "/dashboard",
@@ -27,10 +28,6 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: (<MyProfile/>),
-  },
-  {
-    path: "/signup",
-    element: (<Signup/>),
   },
   {
     path: "/profileupdate",
@@ -60,7 +57,10 @@ const router = createBrowserRouter([
     path: "/*",
     element: (<ErrorPage/>),
   },
-
+  {
+    path: "/login",
+    element: (<Login/>),
+  },
 ]);
 
 function App() {

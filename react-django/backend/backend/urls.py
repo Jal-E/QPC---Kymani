@@ -14,12 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.urls import path
 from rest_framework import generics
 from app.models import *
 from app.serializer import *
-
 class ReactItemView(generics.ListCreateAPIView):
     queryset = React.objects.all()
     serializer_class = ReactSerializer
@@ -202,7 +200,7 @@ urlpatterns = [
     path('Assigned/',AssignedView.as_view(),name='Assigned-list'),
     path('PrecedingActivity/',PrecedingActivityView.as_view(),name='PrecedingActivity-list'),
     path('PrecedingTask/',PrecedingTaskView.as_view(),name='PrecedingTask-list'),
-    path('user-login/', UserAccountView.as_view(), name='Login')
+    path('user-login/', UserAccountView.as_view(), name='Login'),
     path('react-items/<int:pk>/', ReactItemView.as_view(), name='react-item-detail'),
     path('user-accounts/<int:pk>/', UserAccountView.as_view(), name='useraccount-detail'),
     path('employees/<int:pk>/', EmployeeView.as_view(), name='employee-detail'),

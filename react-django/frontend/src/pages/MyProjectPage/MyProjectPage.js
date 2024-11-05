@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Sidebar from '../../component/Sidebar/Sidebar';
 import "./MyProjectPage.css";
 import NavBar from '../../component/Navbar/NavBar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function MyProjectPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,13 +25,17 @@ function MyProjectPage() {
     const pages = [];
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
-        <button
+        <a
           key={i}
-          className={i === currentPage ? "active-page" : "remaining-page"}
-          onClick={() => handlePageChange(i)}
+          href="#"
+          className={i === currentPage ? "active-page" : ""}
+          onClick={(e) => {
+            e.preventDefault();
+            handlePageChange(i);
+          }}
         >
           {i}
-        </button>
+        </a>
       );
     }
     return pages;
@@ -59,50 +61,42 @@ function MyProjectPage() {
         <div className="container21"><Sidebar /></div>
         <div className="container22">
           <div className="main-content">
-          <div className="projects-header">
-            <h2>My Projects</h2>
-            <div className="controls-container">
-              <div className="controls-left">
-                <span className="entries-label">Show</span>
-                <select className="entries-select" value={entriesPerPage} onChange={handleEntriesChange}>
-                  {[10, 15, 20].map((num) => (
-                    <option key={num} value={num}>{num}</option>
-                  ))}
-                </select>
-                <span className="entries-label">entries</span>
-              </div>
-              <div className="controls-right">
-                <button className="create-project">+ Create new project</button>
-                <div className="search-input-div">
-                  <FontAwesomeIcon icon={faSearch} className="search-icon" /> 
-                  <input type="text" placeholder="Search..."   />
-                </div>
-                {/* <input type="text" placeholder="Search" className="search-input" /> */}
-              </div>
-            </div>
-            
-          </div>
             <section className="projects-section">
-              
+              <div className="projects-header">
+                <h2>My Projects</h2>
+                <div className="controls-container">
+                  <div className="controls-left">
+                    <span className="entries-label">Show</span>
+                    <select className="entries-select" value={entriesPerPage} onChange={handleEntriesChange}>
+                      {[10, 15, 20].map((num) => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                    <span className="entries-label">entries</span>
+                  </div>
+                  <div className="controls-right">
+                    <button className="create-project">+ Create new project</button>
+                    <input type="text" placeholder="Search" className="search-input" />
+                  </div>
+                </div>
+              </div>
 
               <table className="projects-table">
                 <thead>
                   <tr>
-                    
+                    <th>Order #</th>
+                    <th>Creation On</th>
                     <th>Project Name</th>
-                    <th>Created On</th>
                     <th>Status</th>
                     <th>Upload a Doc.</th>
                     <th>Actions</th>
-                    <th>Engagement data</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    
-                    <td>Project 01</td>
+                    <td>01</td>
                     <td>2016-06-03</td>
+                    <td>Project 01</td>
                     <td>On hold</td>
                     <td>
                       <button className="upload-btn" onClick={triggerFileUpload}>Upload Doc</button>
@@ -114,21 +108,17 @@ function MyProjectPage() {
                       />
                     </td>
                     <td><button className="view-btn">View</button></td>
-                    <td><button className="view-btn">Present</button></td>
-                    
                   </tr>
-                  
                 </tbody>
               </table>
 
-              
-            </section>
-            <div className="pagination">
+              <div className="pagination">
                 <span>Showing result {startEntry} to {endEntry} of {totalEntries} entries</span>
                 <div className="page-numbers">
                   {renderPageNumbers()}
                 </div>
               </div>
+            </section>
           </div>
         </div>
       </div>

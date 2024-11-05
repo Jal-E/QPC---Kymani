@@ -13,7 +13,7 @@ body, html {
     background-color:white;
     margin: 0;
     padding: 0;
-    font-family: Lato, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 /* Container1 styles */
@@ -109,7 +109,6 @@ body, html {
     display: flex;
     align-items: center;
     gap: 10px;
-    height: 40px;
 }
 
 /* Dropdown and Search Input Styling */
@@ -132,42 +131,28 @@ body, html {
 
 
 .create-project {
-    background-color: #43a7f9;
+    padding: 8px 15px;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s;
-    height: 100%;
 }
 
 .create-project:hover {
     background-color: #0056b3;
 }
 
-.search-input-div {
+.search-input {
+    padding: 8px 12px;
     border: none; 
     border-radius: 5px;
     font-size: 14px;
     color: #555;
-    width: 200px;
-    height: 100%;
-    background-color: white;
-    display: flex; 
-    align-items: center; 
-}
-
-.search-icon {
-    margin-left: 5px;
-    margin-right: 5px;
-    color: #b0b0b0
-}
-
-.search-input {
-    border: 'none';
-    outline: 'none';
-    flex: 1;
+    width: 150px;
+    background-color: #f8f9fa;
 }
 
 /* Projects Table - Borderless */
@@ -201,38 +186,20 @@ body, html {
 }
 
 /* Button Styling within Table */
-.upload-btn{
+.upload-btn,
+.view-btn {
     padding: 5px 10px;
     background-color: transparent;
-    color: #43a7f9;
-    border: 1px solid #43a7f9;
+    color: #007bff;
+    border: 1px solid #007bff;
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 }
-.view-btn {
-    padding: 8px 20px;
-    background-color: #f9fafb; /* Light background color */
-    color: #6c757d; /* Soft gray text color */
-    border:none; /* Light border */
-    border-radius: 6px; /* Rounded corners */
-    font-size: 12px;
-    cursor: pointer;
-}
 
+.upload-btn:hover,
 .view-btn:hover {
-    background-color: #f1f3f5; /* Slightly darker background on hover */
-    color: #495057; /* Darker gray text color on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-}
-
-.view-btn:active {
-    background-color: #e9ecef; /* Darker background on click */
-    color: #343a40; /* Even darker gray text on click */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.upload-btn:hover{
     background-color: #e0f0ff;
 }
 
@@ -247,30 +214,22 @@ body, html {
 }
 
 /* Styling active page link */
-.page-numbers button {
+.page-numbers a {
     padding: 5px 10px;
-    color: #333;
+    color: #007bff;
     text-decoration: none;
     margin: 0 4px;
     border-radius: 4px;
     transition: background-color 0.2s;
 }
 
-.page-numbers button.active-page {
+.page-numbers a.active-page {
     font-weight: bold;
-    color: #43a7f9;
-    background-color: transparent;
-    border-color: transparent;
+    color: white;
+    background-color: #007bff;
 }
 
-.page-numbers button.remaining-page {
-    background-color: white;
-    background-color: transparent;
-    border-color: transparent;
-}
-
-.page-numbers button:hover {
+.page-numbers a:hover {
     background-color: #e0f0ff;
     text-decoration: none;
 }
-

@@ -60,7 +60,7 @@ function EditProject() {
   })
     .then(() => {
       setStatusMessage('Project updated successfully!');
-      navigate('/projectlist');
+      navigate('/myprojectpage');
     })
     .catch((error) => {
       console.error('There was an error updating the project!', error);

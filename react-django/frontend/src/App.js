@@ -50,7 +50,7 @@ const router = createBrowserRouter([
     element: (<EditProject/>),
   },
   {
-    path: "/MyProjectPage",
+    path: "/myprojectpage",
     element: (<MyProjectPage/>),
   },
   {

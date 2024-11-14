@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import MyDashBoard from './pages/MyDashboard/MyDashBoard';
+import MyDashboard from './pages/MyDashboard/MyDashBoard';
 import MyProfile from './pages/MyProfilePage/MyProfile';
 import Signup from './pages/SignupPage/Signup';
 import ProfileUpdatePage from './pages/ProfileUpdate/ProfileUpdatePage';
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: (<MyDashBoard/>),
+    element: (<MyDashboard/>),
   },
   {
     path: "/profile",

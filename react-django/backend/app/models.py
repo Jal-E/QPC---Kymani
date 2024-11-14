@@ -117,7 +117,7 @@ class PrecedingActivity(models.Model):
     activity = models.ForeignKey(Activity, related_name='subsequent_activities', on_delete=models.CASCADE)
     class Meta:
         db_table= 'precedingactivity'
-        
+
 class PrecedingTask(models.Model):
     preceding_task = models.ForeignKey(Task, related_name='preceding_tasks', on_delete=models.CASCADE)
     task = models.ForeignKey(Task, related_name='subsequent_tasks', on_delete=models.CASCADE)

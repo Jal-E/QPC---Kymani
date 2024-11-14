@@ -6,7 +6,7 @@ import './Sidebar.css';
 
 const Sidebar_Data = [
   {
-    title: "My DashBoard",
+    title: "MyDashboard",
     link: "/dashboard",
     icon: <MdOutlineWindow />,
   },

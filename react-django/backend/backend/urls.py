@@ -206,6 +206,7 @@ urlpatterns = [
     path('employees/<int:pk>/', EmployeeView.as_view(), name='employee-detail'),
     path('roles/<int:pk>/', RoleView.as_view(), name='role-detail'),
     path('team-members/<int:pk>/', TeamMemberView.as_view(), name='teammember-detail'),
+    path('Project/', ProjectView.as_view(), name='project-list'),
     path('projects/<int:pk>/', ProjectView.as_view(), name='project-detail'),
     path('on-projects/<int:pk>/', OnProjectView.as_view(), name='onproject-detail'),
     path('client-partners/<int:pk>/', ClientPartnerView.as_view(), name='clientpartner-detail'),

@@ -4,6 +4,8 @@ import "./MyProjectPage.css";
 import NavBar from '../../component/Navbar/NavBar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function MyProjectPage() {
   const [projects, setProjects] = useState([]);
@@ -14,10 +16,10 @@ function MyProjectPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8000/Project/")
+    axios.get("http://localhost:8028/Project")
       .then((response) => {
         setProjects(response.data);
-        setFilteredProjects(response.data);
+        setFilteredProjects(response.data); // Default to all projects
       })
       .catch((error) => {
         console.error("Error fetching projects:", error);
@@ -32,7 +34,7 @@ function MyProjectPage() {
       project.project_name.toLowerCase().includes(query)
     );
     setFilteredProjects(filtered);
-    setCurrentPage(1);
+    setCurrentPage(1); // Reset to first page after filtering
   };
 
   const totalEntries = filteredProjects.length;
@@ -42,6 +44,11 @@ function MyProjectPage() {
   const currentProjects = filteredProjects.slice(startEntry, endEntry);
 
   const handlePageChange = (page) => setCurrentPage(page);
+
+  const handleEntriesChange = (e) => {
+    setEntriesPerPage(Number(e.target.value)); // Update entries per page
+    setCurrentPage(1); // Reset to first page
+  };
 
   const renderPageNumbers = () => {
     return Array.from({ length: totalPages }, (_, i) => (
@@ -68,60 +75,92 @@ function MyProjectPage() {
         </div>
         <div className="container22">
           <div className="main-content">
-            <div className="header">
-              <h2>My Projects</h2>
+            <section className="projects-section-header">
+              <div className="header-title">
+                <h2>My Projects</h2>
+                <div className="entries-container">
+                  Show
+                  <select
+                    className="entries-select"
+                    value={entriesPerPage}
+                    onChange={handleEntriesChange} 
+                  >
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                  </select>
+                  entries
+                </div>
+              </div>
               <div className="header-actions">
-                <input
-                  type="text"
-                  placeholder="Search by project name"
-                  value={searchQuery}
-                  onChange={handleSearch}
-                  className="search-bar"
-                />
                 <button
                   className="create-project"
                   onClick={() => window.location.href = 'http://localhost:3000/createproject'}
                 >
                   + Create new project
                 </button>
+                <div className="search-container">
+                  <FontAwesomeIcon icon={faSearch} className="search-icon" />
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    value={searchQuery}
+                    onChange={handleSearch} 
+                    className="search-bar"
+                  />
+                </div>
               </div>
-            </div>
-
+            </section>
+            
             {statusMessage && (
               <div className={`status-message ${statusMessage.includes('Error') ? 'error' : 'success'}`}>
                 {statusMessage}
               </div>
             )}
 
-            <table className="projects-table">
-              <thead>
-                <tr>
-                  <th>Order #</th>
-                  <th>Project Name</th>
-                  <th>Created On</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentProjects.map((project, index) => (
-                  <tr key={project.id}>
-                    <td>{startEntry + index + 1}</td>
-                    <td>{project.project_name}</td>
-                    <td>{project.planned_start_date}</td>
-                    <td>
-                      <Link to={`/edit-project/${project.id}`} className="view-button">View</Link>
-                    </td>
+            <section className="projects-section">
+              <table className="projects-table">
+                <thead>
+                  <tr>
+                    <th>S.No.</th>
+                    <th>Project Name</th>
+                    <th>Created On</th>
+                    <th>Status</th>
+                    <th>Upload a Doc.</th>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {currentProjects.map((project, index) => (
+                    <tr key={project.id}>
+                      <td>{startEntry + index + 1}</td> {/* Correctly numbered */}
+                      <td>{project.project_name}</td>
+                      <td>{project.planned_start_date}</td>
+                      <td>
+                        <select className="status-dropdown">
+                          <option value="On time" selected={project.status === "On time"}>On Time</option>
+                          <option value="On hold" selected={project.status === "On hold"}>On Hold</option>
+                          <option value="Delayed" selected={project.status === "Delayed"}>Delayed</option>
+                        </select>
+                      </td>
+                      <td>
+                        <button className="upload-btn" onClick={() => {}}>Upload Doc</button>
+                      </td>
+                      <td>
+                        <Link to={`/edit-project/${project.id}`} className="view-button">View</Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
 
-            <div className="pagination">
-              <span>Showing results {startEntry + 1} to {endEntry} of {totalEntries}</span>
-              <div className="page-numbers">
-                {renderPageNumbers()}
+              <div className="pagination">
+                <span>Showing results {startEntry + 1} to {endEntry} of {totalEntries}</span>
+                <div className="page-numbers">
+                  {renderPageNumbers()}
+                </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>

@@ -1,18 +1,114 @@
-.container1 {
-  display: flex;
-  flex-direction: column;
+body{
+  margin: 0;
+  padding: 0;
 }
 
-.container2 {
-  display: flex;
+.text{
+  color: #a0aac8;
+  text-decoration: none;
 }
+
+/* Base styles */
+body, html {
+  background-color:white;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+
+.container1 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  background-color: white;
+  display: block;
+}
+
+
+/* Navbar styles */
+.container11 {
+  width: 100vh;
+  height: 15%;
+  background-color: white;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  padding: 0 20px;
+}
+
+/* Container2 styles */
+.container2 {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
 
 .container21 {
-  width: 250px; /* Sidebar width */
+  background-color: white; 
+  width: 20%;
+  margin-top: 0;
 }
 
 .container22 {
-  flex: 1;
+  width: 80%;
+}
+.main-content {
+  width: calc(100% - 80px); /* Adjust gap to 50px on the right */
+}
+
+/* Main Section Container */
+.projects-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+/* Projects Header */
+.projects-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.projects-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Controls Container */
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.controls-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .main-content {
@@ -30,32 +126,117 @@
 .header h2 {
   margin: 0;
 }
+/*-----------------*/
+.projects-section-header {
+  background-color: transparent;;
+  padding: 15px 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.entries-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 5px;
+  margin-top: 8px; 
+}
+
+.entries-select{
+  background-color: white;
+  border: transparent;
+}
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-left: auto; /* Pushes the items to the right */
-}
-
-.search-bar {
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  gap: 20px; /* Maintain gap between button and search bar */
+  margin-left: auto;
+  margin-top: 10px; /* Ensure both elements are pushed down from the top */
 }
 
 .create-project {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
+  padding: 10px 0; 
+  background-color: #42A5FF; 
+  color: white; 
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 12px; 
+  font-size: 14px; 
+  cursor: pointer; 
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  height: 46px; 
+  width: 220px; 
+  text-align: center; 
 }
 
+
 .create-project:hover {
-  background-color: #0056b3;
+  background-color: #42A5FF;
+  
 }
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white; 
+  border: 1px solid #ddd; 
+  border-radius: 6px; 
+  padding: 5px; 
+  
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #aaa; 
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 10px 10px 35px; /* Leaves space for the icon */
+  border: 1px solid transparent; /* Makes the border transparent */
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none; /* Removes default outline */
+  color: #333;
+  background-color: white; /* Ensures white background inside input */
+  transition: box-shadow 0.2s ease-in-out;
+  height: 17px; 
+  width: 240px; 
+}
+
+.search-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #aaa;
+}
+
+.search-bar {
+  padding-left: 30px; 
+}
+
+/*-----------------*/
 
 .status-message {
   padding: 10px;
@@ -73,61 +254,168 @@
   background-color: #f8d7da;
   color: #721c24;
 }
-
+/*Projects Table*/
 .projects-table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+    border-collapse: collapse;
+    background-color: transparent;
+    margin-top: 10px;
 }
 
 .projects-table th, .projects-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
+  padding: 12px 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+    background-color: transparent;
+    border: none;
+}
+
+/* Button Styling within Table */
+.upload-btn {
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #42A5FF;
+    border: 1px solid #42A5FF;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.upload-btn:hover,
+.view-btn:hover {
+    background-color: #e0f0ff;
 }
 
 .projects-table th {
-  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.projects-table td {
+  color: #666;
 }
 
 .upload-button {
   width: 100%;
 }
 
+
+
+/* Styling for the status dropdown */
+.status-dropdown {
+  padding: 8px 14px; 
+  background-color: #ffffff; 
+  border: transparent; 
+  font-size: 14px; 
+  text-align: right; 
+  width: 90px; 
+  cursor: pointer; 
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative; 
+  margin-left: -10px; 
+}
+
+
+.status-dropdown option {
+  padding: 8px; 
+  color: #555; 
+  font-size: 14px; 
+  font-family: Arial, sans-serif;
+  text-align: left; 
+}
+
+.status-dropdown:focus {
+  outline: none; 
+  border-color: #42A5FF; 
+  
+}
+
+.status-dropdown::-ms-expand {
+  display: none; 
+}
+
+.status-dropdown:after {
+  content: '\25BC'; 
+  font-size: 12px; 
+  color: #555; 
+  position: absolute;
+  right: 12px; 
+  top: 50%;
+  transform: translateY(-50%); 
+  pointer-events: none; 
+}
+
+/* Hover effect for dropdown */
+.status-dropdown:hover {
+  border-color: #42A5FF; 
+  background-color: #f9f9f9; 
+}
+
+/* Additional styling for mobile */
+@media (max-width: 768px) {
+  .status-dropdown {
+    width: 100%; 
+    text-align: right; 
+  }
+}
+
+
+
+/*-------------*/
+
+
 .view-button {
   padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
+    background-color: transparent;
+    color: #42A5FF;
+    border: 1px solid #42A5FF;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .view-button:hover {
-  background-color: #0056b3;
+  background-color: #e0f0ff;
 }
 
+/* Pagination Styling */
 .pagination {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 15px;
 }
 
+/* Styling active page link */
 .page-numbers a {
-  margin: 0 5px;
   padding: 5px 10px;
-  color: #007bff;
+  color: #42A5FF;
   text-decoration: none;
-  border: 1px solid #ddd;
+  margin: 0 4px;
   border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
 .page-numbers a.active-page {
-  background-color: #007bff;
+  font-weight: bold;
   color: white;
+  background-color: #42A5FF;
 }
 
 .page-numbers a:hover {
-  background-color: #0056b3;
-  color: white;
+  background-color: #e0f0ff;
+  text-decoration: none;
 }
+
+
+

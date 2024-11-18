@@ -16,10 +16,10 @@ function MyProjectPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8028/Project")
+    axios.get("http://localhost:8000/Project")
       .then((response) => {
         setProjects(response.data);
-        setFilteredProjects(response.data); // Default to all projects
+        setFilteredProjects(response.data);
       })
       .catch((error) => {
         console.error("Error fetching projects:", error);
@@ -34,7 +34,7 @@ function MyProjectPage() {
       project.project_name.toLowerCase().includes(query)
     );
     setFilteredProjects(filtered);
-    setCurrentPage(1); // Reset to first page after filtering
+    setCurrentPage(1);
   };
 
   const totalEntries = filteredProjects.length;
@@ -47,7 +47,7 @@ function MyProjectPage() {
 
   const handleEntriesChange = (e) => {
     setEntriesPerPage(Number(e.target.value)); // Update entries per page
-    setCurrentPage(1); // Reset to first page
+    setCurrentPage(1);
   };
 
   const renderPageNumbers = () => {

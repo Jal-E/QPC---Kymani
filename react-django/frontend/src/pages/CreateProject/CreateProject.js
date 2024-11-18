@@ -79,7 +79,7 @@ function CreateProject() {
         project_manager: ''
       });
       setFile(null);
-      navigate('/projectlist');
+      navigate('/myprojectpage');
     } catch (error) {
       console.error('There was an error!', error);
       setStatusMessage('Error saving data! Please try again.');

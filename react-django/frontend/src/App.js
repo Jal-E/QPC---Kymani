@@ -13,7 +13,6 @@ import DocumentUpload from './pages/UploadDocuments/DocumentUpload';
 import CreateProject from './pages/CreateProject/CreateProject';
 import Login from './pages/LoginPage/Login';
 import EditProject from "./pages/EditProject/EditProject";
-// import ProjectList from "./pages/ProjectList/ProjectList";
 import MyProjectPage from "./pages/MyProjectPage/MyProjectPage";
 
 const router = createBrowserRouter([

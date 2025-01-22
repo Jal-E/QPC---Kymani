@@ -1,69 +1,33 @@
-import './App.css';
-import BasePage from './pages/BasePage/BasePage';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import MyDashboard from './pages/MyDashboard/MyDashBoard';
-import MyProfile from './pages/MyProfilePage/MyProfile';
-import Signup from './pages/SignupPage/Signup';
-import ProfileUpdatePage from './pages/ProfileUpdate/ProfileUpdatePage';
-import ErrorPage from './pages/ErrorPage/ErrorPage';
-import DocumentUpload from './pages/UploadDocuments/DocumentUpload';
-import CreateProject from './pages/CreateProject/CreateProject';
-import Login from './pages/LoginPage/Login';
-import EditProject from "./pages/EditProject/EditProject";
-import MyProjectPage from "./pages/MyProjectPage/MyProjectPage";
+import React from "react"
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
+import Notfound from "./pages/Notfound"
+import MyDashBoard from "./pages/MyDashBoard"
+import CreateProject from "./pages/CreateProject"
+import UploadDocuments from "./pages/UploadDocuments"
+import MyProjectPage from "./pages/MyProjectPage"
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (<Signup/>),
-  },
-  {
-    path: "/dashboard",
-    element: (<MyDashboard/>),
-  },
-  {
-    path: "/profile",
-    element: (<MyProfile/>),
-  },
-  {
-    path: "/profileupdate",
-    element: (<ProfileUpdatePage/>),
-  },
-  {
-    path: "/documentUpload",
-    element: (<DocumentUpload/>),
-  },
-  {
-    path: "/createproject",
-    element: (<CreateProject/>),
-  },
-  {
-    path: "/edit-project/:id",
-    element: (<EditProject/>),
-  },
-  {
-    path: "/myprojectpage",
-    element: (<MyProjectPage/>),
-  },
-  {
-    path: "/*",
-    element: (<ErrorPage/>),
-  },
-  {
-    path: "/login",
-    element: (<Login/>),
-  },
-]);
+// function Logout(){
+//   localStorage.clear()
+//   return <Navigate to = "/login"/>
+// }
+
+// function RegisterAndLogout(){
+//   localStorage.clear()
+//   return <Register/>
+// }
 
 function App() {
   return (
-    <div className="App">
-    <RouterProvider router={router} />
-    </div>
-  );
+    <BrowserRouter>
+    <Routes>
+      <Route path = "/" element = {<MyDashBoard/>}/>
+      <Route path = "/createproject" element = {<CreateProject/>}/>
+      <Route path = "/uploaddocuments" element = {<UploadDocuments/>}/>
+      <Route path = "/projectpage" element = {<MyProjectPage/>}/>
+      <Route path = "*" element = {<Notfound/>}/>
+    </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

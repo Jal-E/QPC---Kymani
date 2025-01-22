@@ -1,0 +1,287 @@
+.create-project-container {
+    margin: 25px auto;
+  }
+  
+.create-project-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+.create-project-heading p{
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #666666;
+  }
+  
+.create-project-form {
+    /* width: 100%; */
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 20px;
+  }
+
+  .label-input{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .label-input textarea{
+    height: 20rem;
+  }
+
+  .project-top{
+    /* width: 100%; */
+    height: 550px;
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-right: 100px;
+  }
+  
+  .create-project-section {
+    width: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .create-project-section label {
+    font-size: 10px;
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+  }
+
+ .scope-member-project{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+ }
+
+ .scope-member-project label{
+  font-size: 10px;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+ }
+
+
+  
+  .create-project-input, .create-project-textarea {
+    height: 50px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .create-project-textarea {
+    padding: 20px;
+    height: 70%;
+    resize: vertical;
+  }
+  
+  .create-project-milestones {
+    padding-top: 20px;
+  }
+  
+  .create-project-add-milestone-btn {
+    padding: 4px 10px;
+    color: #28a745;
+    background-color: white;
+    border: 1px solid #28a745 ;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .create-project-add-milestone-btn:hover {
+    color: #218838;
+  }
+  
+  
+  .create-project-milestone-inline-group {
+    height: 200px;
+    width: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    /* margin-right: 20px; */
+  }
+  
+  .create-project-milestone-inline-group label {
+    font-size: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+
+  .create-project-milestone-inline-group input {
+    height: 50px;
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+  
+.milestone-title{
+  flex: 2;
+}
+
+  .create-project-milestone-description {
+    margin-top: 10px;
+    width: 89%;
+    height: 110px;
+    padding: 20px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+  }
+  
+  .create-project-submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-project-submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+
+  .create-project-milestone-item{
+    /* width: 100%; */
+    margin-right: 100px;
+    height: 200px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+  }
+
+
+
+
+  
+  .milestone-heading{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  
+
+
+  
+  .button-group {
+    margin-top: 60px;
+    width: 50%;
+    gap: 10px;
+  }
+  
+  .create-project-submit-btn {
+    width: 30%;
+    height: 40px;
+    padding: 10px;
+    background-color: #42a7f8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .create-project-submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .create-project-reset-btn {
+    margin: 10px;
+    height: 40px;
+    width: 20%;
+    padding: 10px;
+    background-color: #f8f9fa;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .create-project-reset-btn:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .create-project-milestone-title-amount{
+    display: flex;
+    flex: 3 1;
+    gap:10px
+
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 16px;
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+  
+  
+  .remove-scope-btn {
+    background: none;
+    border: none;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+
+
+.remove-team-member-btn {
+  background: none;
+  border: none;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.remove-linked-project-btn {
+  background: none;
+  border: none;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.label-input-textarea{
+  padding-top: 10px;
+  padding-left: 20px;
+}
+  

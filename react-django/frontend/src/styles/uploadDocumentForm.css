@@ -1,0 +1,195 @@
+/* Container for the entire upload section */
+.upload-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 0px 50px 0px;
+    border: 1px dotted #ccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    max-width: 500px;
+    margin-left: 20px;
+
+}
+/* .upload-file {
+    
+    padding: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s;
+    position: relative;
+} */
+
+/* Label styl
+
+/* Drag & drop text styling */
+.right .drag-drop-text {
+    color: #b7b7b7;
+    font-size: 1rem;
+    margin: 20px 0 0 20px;
+}
+
+/* Upload button styling */
+.right input[type="file"] {
+    display: none;
+}
+
+.upload-button {
+    display: inline-block;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Tag styling */
+.tags {
+    display: flex;
+}
+
+.tag {
+    margin: 15px 0px 15px 10px ;
+    background-color: #f7f9fa;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.upload-file.dragging {
+    background-color: #e6f7ff;
+    border-color: #1890ff;
+}
+
+.drag-drop-text {
+    color: #aaa;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.upload-button {
+        margin: 0px 0px 15px 0px ;
+        background-color: #f7f9fa;
+        color: #333;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: none;
+    /* display: inline-block;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; */
+}
+
+.upload-button:hover {
+    background-color: #f7f9fa;
+}
+
+.upload-file.dragging {
+    border: 2px dashed #007bff;
+    background-color: #e9f7ff;
+}
+
+.upload-document-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.upload-documents-form {
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.left{
+    width: 40%;
+}
+
+.right{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.uploadDoc{
+    display: flex;
+    height: 50px;
+}
+
+
+.submit-btn {
+    width: 30%;
+    height: 40px;
+    padding: 10px;
+    background-color: #42a7f8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+
+
+
+  .document-upload-input {
+    height: 50px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  .upload-document-textarea {
+    width: 72.5%;
+    height: 20px;
+    padding: 20px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+  }
+
+  .button {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .document-label-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }

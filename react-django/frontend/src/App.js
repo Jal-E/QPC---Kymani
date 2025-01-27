@@ -5,6 +5,8 @@ import MyDashBoard from "./pages/MyDashBoard"
 import CreateProject from "./pages/CreateProject"
 import UploadDocuments from "./pages/UploadDocuments"
 import MyProjectPage from "./pages/MyProjectPage"
+import SignupPage from "./pages/SignupPage"
+import LoginPage from "./pages/LoginPage"
 
 // function Logout(){
 //   localStorage.clear()
@@ -20,7 +22,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path = "/" element = {<MyDashBoard/>}/>
+      <Route path = "/" element = {<SignupPage/>}/>
+      <Route path = "/login" element = {<LoginPage/>}/>
+      <Route path = "/myDashboard" element = {<MyDashBoard/>}/>
       <Route path = "/createproject" element = {<CreateProject/>}/>
       <Route path = "/uploaddocuments" element = {<UploadDocuments/>}/>
       <Route path = "/projectpage" element = {<MyProjectPage/>}/>
